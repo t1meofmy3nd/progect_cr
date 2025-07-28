@@ -39,7 +39,7 @@
       <div class="trading-container">
         <div class="chart">
           <h3>График (candlestick)</h3>
-          <p>Здесь будет размещён график TradingView или собственного решения.</p>
+          <div id="tv-chart" style="height:100%;"></div>
         </div>
         <div class="order-book">
           <h3>Стакан ордеров</h3>
@@ -78,11 +78,29 @@
       document.body.classList.toggle('dark');
       localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     }
-    
+
      // Раскрытие мобильного меню
     const nav = document.querySelector('header nav');
     document.querySelector('.nav-toggle').addEventListener('click', () => {
       nav.classList.toggle('open');
+    });
+  </script>
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script>
+    new TradingView.widget({
+      container_id: 'tv-chart',
+      width: '100%',
+      height: 480,
+      symbol: 'BINANCE:BTCUSDT',
+      interval: '60',
+      timezone: 'Etc/UTC',
+      theme: document.body.classList.contains('dark') ? 'dark' : 'light',
+      style: '1',
+      locale: 'ru',
+      toolbar_bg: '#f1f3f6',
+      enable_publishing: false,
+      hide_top_toolbar: false,
+      save_image: false
     });
   </script>
 </body>
