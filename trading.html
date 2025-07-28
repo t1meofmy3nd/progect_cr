@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Terminal - CryptoEx</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="header"></div>
+<main class="trading-container">
+  <div class="chart" id="tv-chart"></div>
+  <div class="orderbook">
+    <h2>Order Book</h2>
+    <div class="book-asks" id="book-asks"></div>
+    <div class="book-bids" id="book-bids"></div>
+  </div>
+  <form class="trade-form" id="trade-form">
+    <label>
+      Order Type
+      <select id="order-type">
+        <option value="market">Market</option>
+        <option value="limit">Limit</option>
+      </select>
+    </label>
+    <label>
+      Price
+      <input type="number" id="price" step="0.01">
+    </label>
+    <label>
+      Amount
+      <input type="number" id="amount" step="0.0001">
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+</main>
+<div id="footer"></div>
+<script src="js/script.js"></script>
+<script src="js/tradingview-init.js"></script>
+</body>
+</html>
