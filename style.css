@@ -12,6 +12,8 @@
   --color-secondary: #f0f3f6;
   --color-text: #1a1a1a;
   --color-border: #e0e0e0;
+  --color-success: #2ecc71;
+  --color-danger: #e74c3c;
 }
 
 /* Dark theme overrides */
@@ -22,6 +24,8 @@ body.dark {
   --color-secondary: #252c41;
   --color-text: #e5e5e5;
   --color-border: #3a4566;
+  --color-success: #2ecc71;
+  --color-danger: #e74c3c;
 }
 
 * {
@@ -30,13 +34,31 @@ body.dark {
   padding: 0;
 }
 
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 body {
   font-family: 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.4;
   background-color: var(--color-background);
   color: var(--color-text);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
 }
 
 header {
@@ -57,6 +79,31 @@ header .logo {
 header nav {
   display: flex;
   gap: 1rem;
+   align-items: center;
+}
+
+/* Кнопки в шапке */
+.nav-toggle,
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+
+.theme-toggle {
+  margin-left: 1rem;
+}
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle:hover,
+.theme-toggle:hover {
+  color: var(--color-primary);
 }
 
 nav a {
@@ -64,7 +111,7 @@ nav a {
   text-decoration: none;
   padding: 0.5rem;
   border-radius: 4px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 nav a:hover {
@@ -123,6 +170,20 @@ main {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.up {
+  color: var(--color-success);
+}
+
+.down {
+  color: var(--color-danger);
 }
 
 .card h3 {
@@ -156,6 +217,23 @@ main {
   border-radius: 8px;
   padding: 1rem;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.book-row.header {
+  font-weight: bold;
+}
+
+.book-row:last-child {
+  border-bottom: none;
 }
 
 .trade-form {
@@ -170,6 +248,26 @@ main {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-surface);
+    flex-direction: column;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  header nav.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+  
   .container {
     flex-direction: column;
   }

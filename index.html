@@ -5,28 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crypto Exchange – Главная</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Подключаем Font Awesome для иконок -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
   <header>
     <div class="logo">CryptoX</div>
-    <nav>
-      <a href="index.html">Главная</a>
-      <a href="trading.html">Торговля</a>
-      <a href="#">Кошелек</a>
-      <a href="#">P2P</a>
-      <a href="#">Фьючерсы</a>
-      <a href="#">Академия</a>
+    <button class="nav-toggle" aria-label="Меню"><i class="fas fa-bars"></i></button>
+    <nav class="main-nav">
+      <a href="index.html"><i class="fas fa-house"></i> Главная</a>
+      <a href="trading.html"><i class="fas fa-chart-line"></i> Торговля</a>
+      <a href="#"><i class="fas fa-wallet"></i> Кошелек</a>
+      <a href="#"><i class="fas fa-handshake"></i> P2P</a>
+      <a href="#"><i class="fas fa-chart-area"></i> Фьючерсы</a>
+      <a href="#"><i class="fas fa-graduation-cap"></i> Академия</a>
     </nav>
   </header>
   <div class="container">
     <aside>
       <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="trading.html">Торговый терминал</a></li>
-        <li><a href="#">Кошелек</a></li>
-        <li><a href="#">P2P</a></li>
-        <li><a href="#">Фьючерсы</a></li>
-        <li><a href="#">Академия</a></li>
+        <li><a href="index.html"><i class="fas fa-house"></i> Главная</a></li>
+        <li><a href="trading.html"><i class="fas fa-chart-line"></i> Торговый терминал</a></li>
+        <li><a href="#"><i class="fas fa-wallet"></i> Кошелек</a></li>
+        <li><a href="#"><i class="fas fa-handshake"></i> P2P</a></li>
+        <li><a href="#"><i class="fas fa-chart-area"></i> Фьючерсы</a></li>
+        <li><a href="#"><i class="fas fa-graduation-cap"></i> Академия</a></li>
       </ul>
     </aside>
     <main>
@@ -36,9 +39,9 @@
         <!-- Card for market ticker -->
         <div class="card">
           <h3>Топ‑криптовалюты</h3>
-          <p>BTC/USD: 65 000 USDT ↑ 2.5%<br>
-             ETH/USD: 2 100 USDT ↓ 1.2%<br>
-             BNB/USD: 420 USDT ↑ 0.8%
+          <p>BTC/USD: 65 000 USDT <span class="up">↑ 2.5%</span><br>
+             ETH/USD: 2 100 USDT <span class="down">↓ 1.2%</span><br>
+             BNB/USD: 420 USDT <span class="up">↑ 0.8%</span>
           </p>
         </div>
         <!-- Card for events -->
@@ -58,13 +61,20 @@
     © 2025 CryptoX. Все права защищены. | <a href="#">Политика конфиденциальности</a>
   </footer>
   <script>
-    // Темповые функции для переключения тем (демонстрация)
+    // Сохранение выбранной темы между посещениями
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'dark') document.body.classList.add('dark');
+    
     function toggleTheme() {
       document.body.classList.toggle('dark');
       localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
     }
+    
+    // Раскрытие мобильного меню
+    const nav = document.querySelector('header nav');
+    document.querySelector('.nav-toggle').addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
