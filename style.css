@@ -1,201 +1,153 @@
-/*
-  CSS Style for Crypto Exchange Design
-  Defines light and dark themes, responsive layout and basic styles for header, navigation,
-  charts, order book and trade form.
-*/
-
-/* Color variables for light theme */
+/* Основные переменные цвета */
 :root {
-  --color-background: #ffffff;
-  --color-surface: #f5f5f5;
-  --color-primary: #2a82da;
-  --color-secondary: #f0f3f6;
-  --color-text: #1a1a1a;
-  --color-border: #e0e0e0;
+  --bg: #ffffff;
+  --surface: #f5f7fa;
+  --text: #1f2937;
+  --border: #e5e7eb;
+  --green: #22C55E;
+  --red: #EF4444;
 }
 
-/* Dark theme overrides */
 body.dark {
-  --color-background: #131722;
-  --color-surface: #1e2434;
-  --color-primary: #2a82da;
-  --color-secondary: #252c41;
-  --color-text: #e5e5e5;
-  --color-border: #3a4566;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #e2e8f0;
+  --border: #334155;
 }
 
 body {
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--color-background);
-  color: var(--color-text);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
 }
 
 header {
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
 }
 
 header .logo {
-  font-size: 1.2rem;
   font-weight: bold;
-  color: var(--color-primary);
 }
 
-header nav {
-  display: flex;
-  gap: 1rem;
-}
-
-nav a {
-  color: var(--color-text);
+header nav a {
+  margin-right: 1rem;
   text-decoration: none;
-  padding: 0.5rem;
+  color: var(--text);
+}
+
+header button {
+  background: none;
+  border: 1px solid var(--border);
   border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-nav a:hover {
-  background-color: var(--color-secondary);
-}
-
-.container {
-  display: flex;
-  flex: 1;
-}
-
-aside {
-  width: 200px;
-  background-color: var(--color-surface);
-  border-right: 1px solid var(--color-border);
-  padding: 1rem;
-}
-
-aside ul {
-  list-style: none;
-}
-
-aside li {
-  margin-bottom: 0.5rem;
-}
-
-aside a {
-  color: var(--color-text);
-  text-decoration: none;
-  display: block;
-  padding: 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-aside a:hover {
-  background-color: var(--color-secondary);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
 }
 
 main {
-  flex: 1;
   padding: 1rem;
+}
+
+/* Главная страница */
+.home {
+  display: grid;
+  gap: 2rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--green);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.tickers {
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.ticker-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
-/* Dashboard / Home page components */
-.home-grid {
+.ticker {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+/* Торговый терминал */
+.terminal {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.card h3 {
-  margin-bottom: 0.5rem;
-}
-
-/* Trading page layout */
-.trading-container {
-  display: grid;
-  grid-template-areas: 
-    'chart order-book'
-    'trade-form trade-form';
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 2fr 1fr;
   gap: 1rem;
-  height: calc(100vh - 100px);
 }
 
 .chart {
-  grid-area: chart;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
+  background: var(--surface);
+  height: 400px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.order-form {
+  background: var(--surface);
   padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-top: 1rem;
 }
 
 .order-book {
-  grid-area: order-book;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 1rem;
-  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-family: 'Courier New', monospace;
 }
 
-.trade-form {
-  grid-area: trade-form;
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
+.order-book table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  aside {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid var(--color-border);
-  }
-  .trading-container {
-    grid-template-areas: 
-      'chart'
-      'order-book'
-      'trade-form';
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-  .order-book, .trade-form, .chart {
-    height: auto;
-  }
+.order-book td {
+  padding: 2px 4px;
 }
 
-/* Footer */
-footer {
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  padding: 0.5rem 1rem;
+.order-book .asks td { color: var(--red); }
+.order-book .bids td { color: var(--green); }
+
+.mid {
   text-align: center;
-  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 2px;
 }
+
+.flash-red { background: rgba(239, 68, 68, 0.2); transition: background 0.6s; }
+.flash-green { background: rgba(34, 197, 94, 0.2); transition: background 0.6s; }
+
+@media (max-width: 768px) {
+  .terminal {
+    grid-template-columns: 1fr;
+  }
+}
+
