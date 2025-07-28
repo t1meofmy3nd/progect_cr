@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Exchange – Торговый терминал</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">CryptoX</div>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="trading.html" class="active">Торговля</a>
+      <a href="#">Кошелек</a>
+      <a href="#">P2P</a>
+      <a href="#">Фьючерсы</a>
+      <a href="#">Академия</a>
+    </nav>
+  </header>
+  <div class="container">
+    <aside>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="trading.html">Торговый терминал</a></li>
+        <li><a href="#">Кошелек</a></li>
+        <li><a href="#">P2P</a></li>
+        <li><a href="#">Фьючерсы</a></li>
+        <li><a href="#">Академия</a></li>
+      </ul>
+    </aside>
+    <main>
+      <h1>Торговый терминал</h1>
+      <div class="trading-container">
+        <div class="chart">
+          <h3>График (candlestick)</h3>
+          <p>Здесь будет размещён график TradingView или собственного решения.</p>
+        </div>
+        <div class="order-book">
+          <h3>Стакан ордеров</h3>
+          <div>
+            <p>Покупка | Цена | Продажа</p>
+            <p>...</p>
+          </div>
+        </div>
+        <div class="trade-form">
+          <h3>Форма покупки/продажи</h3>
+          <label>Цена
+            <input type="number" placeholder="0.00" style="width:100%; padding:0.5rem; margin-top:0.2rem;">
+          </label>
+          <label>Количество
+            <input type="number" placeholder="0.00" style="width:100%; padding:0.5rem; margin-top:0.2rem;">
+          </label>
+          <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+            <button style="flex:1; padding:0.6rem; background-color:var(--color-primary); color:#fff; border:none; border-radius:4px;">Купить</button>
+            <button style="flex:1; padding:0.6rem; background-color:#da2a2a; color:#fff; border:none; border-radius:4px;">Продать</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer>
+    © 2025 CryptoX. Все права защищены. | <a href="#">Политика конфиденциальности</a>
+  </footer>
+  <script>
+    // Темповые функции для переключения тем (демонстрация)
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') document.body.classList.add('dark');
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+  </script>
+</body>
+</html>
