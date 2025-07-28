@@ -1,14 +1,19 @@
 <header>
-  <nav class="navbar">
-    <div class="logo">CryptoEx</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="trading.html">Trading</a></li>
-      <li><a href="assets.html">Assets</a></li>
-      <li><a href="#">P2P</a></li>
-      <li><a href="#">Wallet</a></li>
-      <li><a href="#">Profile</a></li>
-    </ul>
-    <button id="theme-toggle" aria-label="Switch theme">🌙</button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="index.html">CryptoEx</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+          <li class="nav-item"><a class="nav-link" href="trading.html">Торговля</a></li>
+          <li class="nav-item"><a class="nav-link" href="assets.html">Кошелёк</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Профиль</a></li>
+        </ul>
+        <button class="btn btn-sm btn-secondary ms-lg-3" id="theme-toggle" aria-label="Switch theme">🌙</button>
+      </div>
+    </div>
   </nav>
 </header>

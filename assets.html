@@ -4,30 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assets - CryptoEx</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <div id="header"></div>
-<main class="assets-container">
-  <table class="assets-table">
-    <thead>
-      <tr><th>Currency</th><th>Balance</th><th>Actions</th></tr>
-    </thead>
-    <tbody id="assets-body">
-      <tr data-symbol="BTC"><td>BTC</td><td>0.0</td><td><button class="deposit-btn">Deposit</button> <button class="withdraw-btn">Withdraw</button></td></tr>
-      <tr data-symbol="ETH"><td>ETH</td><td>0.0</td><td><button class="deposit-btn">Deposit</button> <button class="withdraw-btn">Withdraw</button></td></tr>
-      <tr data-symbol="USDT"><td>USDT</td><td>0.0</td><td><button class="deposit-btn">Deposit</button> <button class="withdraw-btn">Withdraw</button></td></tr>
-    </tbody>
-  </table>
-  <form class="wallet-form" id="wallet-form" hidden>
+
+<main class="container my-4 flex-grow-1">
+  <h2 class="text-light mb-3">Баланс</h2>
+  <div class="table-responsive">
+    <table class="table table-dark table-striped align-middle" id="assets-table">
+      <thead>
+        <tr><th>Валюта</th><th>Количество</th><th>Стоимость</th><th>Действия</th></tr>
+      </thead>
+      <tbody id="assets-body">
+        <tr data-symbol="BTC"><td>BTC</td><td>0.0</td><td>-</td>
+          <td><button class="btn btn-sm btn-success deposit-btn">Пополнить</button>
+              <button class="btn btn-sm btn-danger withdraw-btn">Вывести</button></td></tr>
+        <tr data-symbol="ETH"><td>ETH</td><td>0.0</td><td>-</td>
+          <td><button class="btn btn-sm btn-success deposit-btn">Пополнить</button>
+              <button class="btn btn-sm btn-danger withdraw-btn">Вывести</button></td></tr>
+        <tr data-symbol="USDT"><td>USDT</td><td>0.0</td><td>-</td>
+          <td><button class="btn btn-sm btn-success deposit-btn">Пополнить</button>
+              <button class="btn btn-sm btn-danger withdraw-btn">Вывести</button></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <form class="wallet-form card bg-dark text-light p-3 mt-4" id="wallet-form" hidden>
     <h3 id="wallet-action"></h3>
-    <label>Address<input type="text" id="wallet-address"></label>
-    <label>Amount<input type="number" id="wallet-amount"></label>
-    <button type="submit">Submit</button>
+    <div class="mb-2">
+      <label class="form-label">Адрес
+        <input type="text" id="wallet-address" class="form-control form-control-sm">
+      </label>
+    </div>
+    <div class="mb-2">
+      <label class="form-label">Количество
+        <input type="number" id="wallet-amount" class="form-control form-control-sm">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
   </form>
-  <div id="wallet-msg" class="msg" hidden></div>
+
+    <div id="wallet-msg" class="alert alert-success mt-3" hidden></div>
 </main>
-<div id="footer"></div>
+
+<div id="footer" class="mt-auto"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

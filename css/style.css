@@ -1,64 +1,30 @@
 :root {
-  --bg-color: #121212;
-  --text-color: #eee;
-  --accent-color: #1e90ff;
+  --bg-color: #0d1117;
+  --text-color: #e6e6e6;
+  --accent-color: #3b82f6;
 }
 
 body.light {
-  --bg-color: #fff;
-  --text-color: #000;
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
 }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg-color);
+  background-color: var(--bg-color);
   color: var(--text-color);
-}
-
-header, footer {
-  background: #1a1a1a;
-  color: var(--text-color);
-  padding: 10px 20px;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-links a {
-  color: var(--text-color);
-  text-decoration: none;
-}
-
-#theme-toggle {
-  background: none;
-  border: none;
-  color: var(--text-color);
-  cursor: pointer;
-  font-size: 1.2em;
 }
 
 .ticker {
-  background: #222;
-  padding: 10px;
-  overflow: hidden;
+  background: #1a1a1a;
+  padding: 6px 0;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .ticker span {
   display: inline-block;
-  animation: move 10s linear infinite;
+  animation: move 12s linear infinite;
 }
 
 @keyframes move {
@@ -66,78 +32,48 @@ header, footer {
   to { transform: translateX(-100%); }
 }
 
-.banner {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.cta-btn {
-  padding: 10px 20px;
-  background: var(--accent-color);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-}
-
-.trading-container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  padding: 20px;
-}
-
 .chart {
-  height: 400px;
-  background: #111;
+  height: 420px;
 }
 
 .orderbook {
-  background: #181818;
-  padding: 10px;
+  max-height: 300px;
   overflow-y: auto;
-  max-height: 400px;
+  font-size: 0.85rem;
 }
 
 .book-asks div, .book-bids div {
   display: flex;
   justify-content: space-between;
-  padding: 2px 0;
+  ppadding: 2px 4px;
 }
 
-.book-asks div {
-  background: rgba(255,0,0,0.1);
+.book-asks div { background: rgba(255,0,0,0.1); }
+.book-bids div { background: rgba(0,255,0,0.1); }
+
+.skeleton {
+  position: relative;
+  background-color: #2a2a2a;
+  overflow: hidden;
+  color: transparent;
 }
 
-.book-bids div {
-  background: rgba(0,255,0,0.1);
-}
-
-.trade-form label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.assets-table {
+.skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
-  border-collapse: collapse;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  animation: loading 1.5s infinite;
 }
 
-.assets-table td, .assets-table th {
-  border: 1px solid #333;
-  padding: 8px;
+@keyframes loading {
+  from { left: -100%; }
+  to { left: 100%; }
 }
 
 .wallet-form {
-  margin-top: 20px;
-}
-
-.msg {
-  margin-top: 10px;
-  color: var(--accent-color);
-}
-
-@media (max-width: 768px) {
-  .trading-container {
-    grid-template-columns: 1fr;
-  }
+  max-width: 400px;
 }

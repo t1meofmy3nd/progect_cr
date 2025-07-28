@@ -11,6 +11,8 @@ function loadComponents() {
 document.addEventListener('DOMContentLoaded', () => {
   loadComponents();
   startTicker();
+  setTimeout(initHomePrices, 1000);
+  setTimeout(initNews, 1000);
   initOrderBook();
   initWalletActions();
 });
@@ -31,6 +33,24 @@ function startTicker() {
     const eth = (1800 + Math.random()*50).toFixed(2);
     span.textContent = `BTC/USDT ${btc} | ETH/USDT ${eth}`;
   }, 2000);
+}
+
+// home page prices
+function initHomePrices() {
+  const container = document.getElementById('price-cards');
+  if(!container) return;
+  const symbols = ['BTC', 'ETH', 'BNB', 'SOL'];
+  container.innerHTML = '';
+  symbols.forEach(sym => {
+    const price = (100 + Math.random()*30000).toFixed(2);
+    container.innerHTML += `<div class="col-6 col-md-3"><div class="card bg-dark text-light"><div class="card-body text-center"><h5 class="card-title">${sym}/USDT</h5><p class="card-text">${price}</p></div></div></div>`;
+  });
+}
+
+function initNews() {
+  const news = document.getElementById('news');
+  if(!news) return;
+  news.innerHTML = `<div class="col-12"><div class="alert alert-secondary text-center" role="alert">Новые возможности торговать на CryptoEx скоро!</div></div>`;
 }
 
 // order book logic
